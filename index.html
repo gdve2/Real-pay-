@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Real Pay</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Real <span>Pay</span></div>
+    <div id="status" class="status">Not signed in</div>
+  </header>
+
+  <main class="container">
+    <section id="authView" class="card auth">
+      <h1>Earn rewards</h1>
+      <p class="muted">Create an account or sign in to access available reward tasks.</p>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="register">Create account</button>
+      </div>
+
+      <form id="loginForm" class="form">
+        <label>Email<input id="loginEmail" type="email" required autocomplete="email"></label>
+        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+        <button class="primary" type="submit">Login</button>
+      </form>
+
+      <form id="registerForm" class="form hidden">
+        <label>Name<input id="regName" required autocomplete="name"></label>
+        <label>Email<input id="regEmail" type="email" required autocomplete="email"></label>
+        <label>Password<input id="regPassword" type="password" minlength="8" required autocomplete="new-password"></label>
+        <button class="primary" type="submit">Create account</button>
+      </form>
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <section id="appView" class="hidden">
+      <div class="grid">
+        <div class="card balance">
+          <div class="muted">Available balance</div>
+          <div id="balance" class="money">₦0</div>
+          <div id="userName" class="muted"></div>
+        </div>
+        <div class="card">
+          <h3>Account</h3>
+          <p id="userEmail" class="muted"></p>
+          <button id="logoutBtn" class="secondary">Log out</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="sectionHead">
+          <div><h2>Available tasks</h2><p class="muted">Rewards are added only after a task is successfully recorded.</p></div>
+          <button id="refreshBtn" class="secondary">Refresh</button>
+        </div>
+        <div id="tasks" class="tasks"></div>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h2>Request withdrawal</h2>
+          <p class="muted">A request is submitted for review. This page does not claim that a payment has been made.</p>
+          <form id="withdrawForm" class="form">
+            <label>Amount (₦)<input id="withdrawAmount" type="number" min="1" step="1" required></label>
+            <button class="primary" type="submit">Submit request</button>
+          </form>
+          <p id="withdrawMessage" class="message"></p>
+        </div>
+
+        <div class="card">
+          <h2>Recent activity</h2>
+          <div id="ledger" class="activity"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Withdrawal requests</h2>
+        <div id="withdrawals" class="activity"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Real Pay • Reward platform demo/production starter • Never enter your banking PIN or OTP here.</footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
